@@ -20,6 +20,24 @@ function createAndAppend (text, completed){
         updateStorage();
     })
 
+    // For Editing
+    let editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+
+    editBtn.addEventListener('click', function(event) {
+        event.stopPropagation();
+
+        const listItem = event.target.parentElement;
+        const todoText = listItem.textContent.replace('EditDelete', '').trim();
+        const inputField = document.createElement('input');
+
+        inputField.type = 'text';
+        inputField.value = todoText;
+        
+        listItem.replaceWith(inputField);
+        inputField.focus();
+    });
+
     // For Deletion
     let dltBtn = document.createElement('button');
     dltBtn.textContent = 'Delete';
@@ -29,8 +47,10 @@ function createAndAppend (text, completed){
         updateStorage();
     })
 
-    displayTask.append(newTask);
+    newTask.append(editBtn);
     newTask.append(dltBtn);
+    displayTask.append(newTask);
+    
 }
 
 // For Clearing all Todos;
