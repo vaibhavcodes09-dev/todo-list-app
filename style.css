@@ -83,3 +83,34 @@ body{
 #toDoList li button:hover {
     opacity: 1;
 }
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    
+    body {
+        margin: 10px;
+    }
+
+    #toDoForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #toDoInput {
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    #toDoList li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #toDoList li button {
+        margin-top: 10px;
+        width: calc(50% - 5px);
+    }
+}
